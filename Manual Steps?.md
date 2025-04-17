@@ -59,3 +59,45 @@ Router(config)# security authentication failure rate threshold-rate log
 ~~~
 R1# show login
 ~~~
+
+# Configuring SSH
+- hostname
+  ~~~
+  Router# configure terminal
+  Router(config)# hostname R1
+  ~~~
+- Configure IP Domain Name
+  ~~~
+  R1(config)# ip domain name span.com
+  ~~~
+- Generate key to encrypt SSh Traffic
+~~~
+R1(config)# crypto key generate rsa general-keys modulus KEY_SIZE
+~~~
+- Verify or create local database entry
+~~~
+R1# show crypto key mypubkey rsa
+~~~
+- Authenticate against local database
+- Enable VTY inbound SSH Sessions (Disabled by default)
+~~~
+R1(config)# line vty 0 4
+R1(config-line)# login local
+R1(config-line)# transport input ssh
+R1(config-line)# exit
+~~~
+
+# SSH Login Enhancements
+- Show IP SSH
+~~~
+R1# show ip ssh
+~~~
+- SSH Timeout & Authentication
+~~~
+ip ssh time-out SECONDS
+ip ssh authentication-retries
+~~~
+- Show current SSH Conns
+~~~
+R1# show ssh
+~~~
