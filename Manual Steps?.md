@@ -101,3 +101,10 @@ ip ssh authentication-retries
 ~~~
 R1# show ssh
 ~~~
+
+# Role-Based CLI Access
+- Root View (Privilege 15 access)
+- CLI View (CMDs bundled into CLi View. Each view is assigned commands.)
+- Superview (One or more CLI views which commands are accepted and which config info is visible. Allow networka dmins to assign users and groups of users multiple CLI views at once).
+# Configure RB CLI
+- Enable AAA new-model
